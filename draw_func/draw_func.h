@@ -1,0 +1,23 @@
+#ifndef DRAW_FUNC_H
+#define DRAW_FUNC_H
+#include <SDL2/SDL.h>
+#include "../vector_2/vector_2.h"
+
+typedef struct t_face{
+	t_vec2 pos;
+	t_vec2  vel;
+	t_vec2 points[4];
+}	t_face;
+
+
+typedef struct s_data{
+	int			argc;
+	char 		**argv;
+	SDL_Window	*window;
+	SDL_Renderer *renderer;
+} t_data;
+
+
+void draw_face(t_face face, t_data data);
+
+#endif
