@@ -4,7 +4,7 @@ int init_win(t_data *data)
 {
 	data->window = NULL;
 	data->window = SDL_CreateWindow("SDL2", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                              640*2, 480*2, SDL_WINDOW_SHOWN);
+                              640*5, 480*2, SDL_WINDOW_SHOWN);
 	if(!data->window)
     {
         fprintf(stderr, "Erreur SDL_CreateWindow : %s", SDL_GetError());

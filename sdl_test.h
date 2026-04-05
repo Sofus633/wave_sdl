@@ -11,6 +11,7 @@
 
 #define M_PI 3.14159265358979323846
 int user_main(t_data *data);
+int user_main2(t_data *data);
 int init_all(t_data *data);
 
 #endif

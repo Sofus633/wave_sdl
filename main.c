@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 		return (EXIT_FAILURE);
 
 	user_main(&data);
-	
+
     SDL_DestroyWindow(data.window);
     SDL_Quit();
 

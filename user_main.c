@@ -18,23 +18,25 @@ int user_main(t_data *data){
 			{10, 0}
 		}
 	};*/
-	int nb_faces = 20;
+	int nb_faces = 200;
 
 	t_face *faces = malloc(sizeof(t_face)* nb_faces);
-	for (int i = 0; i < 20; i++){
+	for (int i = 0; i < nb_faces; i++){
 		faces[i] = (t_face){
-			{(i * 20) + 300, 400},
+			{(i * 3)+2, 600},
 			{0, 0},
 		{
 			{0, 0},
-			{0, 10},
-			{10, 10},
-			{10, 0}
+			{0, 2},
+			{2, 2},
+			{2, 0}
 		}
 	};
 	}
-	faces[1].pos.y += 300;
-	for (int y = 0; y < 100; y++){
+	faces[100].pos.y += 500;
+	faces[300].pos.y -= 500;
+	double adv;
+	for (int y = 0; y < 5000; y++){
 		SDL_SetRenderDrawColor(data->renderer,
 						100,
 						0,
@@ -45,17 +47,23 @@ int user_main(t_data *data){
 		}
 
 		//printf("%d   ", faces[0].vel.y);
-		for (int i = 1; i < nb_faces-2; i++){
+		for (int i = 1; i <= nb_faces-2; i++){
 			//printf("%d   ", faces[i].vel.y);
-			faces[i].vel.y += (((faces[i-1].pos.y + faces[i+1].pos.y) * 0.5) - faces[i].pos.y) * 0.2;
-			faces[i].vel.y *= 0.91;
+			if (i == 0)
+				adv = faces[i+1].pos.y;
+			else if (i == nb_faces-1)
+				adv = faces[i-1].pos.y;
+			else
+				adv = (faces[i-1].pos.y + faces[i+1].pos.y) * 0.5;
+			faces[i].vel.y += ((adv) - faces[i].pos.y) * 0.2;
+			faces[i].vel.y *= 0.91100;
 			faces[i].pos.y += faces[i].vel.y;
 		}
 		//printf("%d   ", faces[8].vel.y);
 		//printf("\n");
 
 		SDL_RenderPresent(data->renderer);
-		SDL_Delay(100);
+		SDL_Delay(10);
 		SDL_SetRenderDrawColor(data->renderer,
 						0,
 						0,
