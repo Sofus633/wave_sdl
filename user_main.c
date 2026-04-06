@@ -97,8 +97,8 @@ int user_main(t_data *data){
 		(double)0
 	};
 	}
-	faces[100].pos.y += 500;
-	faces[300].pos.y -= 500;
+	faces[150].pos.y += 500;
+	faces[50].pos.y -= 500;
 
 	for (int y = 0; y < 5000; y++){
 		draw_faces(nb_faces, faces, data);
