@@ -18,7 +18,7 @@ void draw_face(t_face face, t_data data)
 			face.points[(i+1)%4].x + face.pos.x + (face.points[(i+1)%4].x/2),
 			face.points[(i+1)%4].y + face.pos.y + (face.points[(i+1)%4].y/2)
 		);
-		/*printf("%d %d %d %d\n", face.points[i].x       + face.pos.x,
+		/*printf("%f %f %f %f\n", face.points[i].x       + face.pos.x,
 			face.points[i].y       + face.pos.y,
 			face.points[(i+1)%4].x + face.pos.x,
 			face.points[(i+1)%4].y + face.pos.y);*/

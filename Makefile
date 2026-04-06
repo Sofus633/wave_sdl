@@ -14,6 +14,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\n"
+	
 	$(CC) $(OBJ) $(LDFLAGS)  -o $(NAME)
 	@echo "\n$(OBJ) -> $(NAME) ✨\n"
 	@printf "🧙 compilation\033[0;32m SUCESS \033[0m🪄\n"

@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     if (init_all(&data))
 		return (EXIT_FAILURE);
 
-	user_main(&data);
+	user_main_2D(&data);
 
     SDL_DestroyWindow(data.window);
     SDL_Quit();

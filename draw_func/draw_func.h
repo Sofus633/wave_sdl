@@ -7,6 +7,8 @@ typedef struct t_face{
 	t_vec2 pos;
 	t_vec2  vel;
 	t_vec2 points[4];
+	double		z_pos;
+	double		z_vel;
 }	t_face;
 
 
