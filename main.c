@@ -9,10 +9,10 @@ int main(int argc, char *argv[])
 	data.argc = argc;
 	data.argv = argv;
     if (init_all(&data))
-		return (EXIT_FAILURE);
+			return (EXIT_FAILURE);
 
-	user_main_2D(&data);
-
+		user_main(&data);
+		if (data.window)
     SDL_DestroyWindow(data.window);
     SDL_Quit();
 

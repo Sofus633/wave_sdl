@@ -11,13 +11,23 @@ typedef struct t_face{
 	double		z_vel;
 }	t_face;
 
+typedef struct s_wave_sim{
+	int nb_faces;
+	struct t_face *faces;
+	struct t_face **faces_2d;
+} t_wave_sim;
 
 typedef struct s_data{
 	int			argc;
 	char 		**argv;
 	SDL_Window	*window;
 	SDL_Renderer *renderer;
+	t_wave_sim	*sim;
+	bool mousepress;
+	bool quit;
+	SDL_Event event;
 } t_data;
+
 
 
 void draw_face(t_face face, t_data data);

@@ -1,9 +1,9 @@
 CC = cc
-SRC = main.c user_main.c init_data.c draw_func/draw_face.c matrices/rotations.c vector_2/vec.c
+SRC = main.c user/user_main.c user/user_draw.c user/user_update.c init_data.c draw_func/draw_face.c matrices/rotations.c vector_2/vec.c
 OBJ = $(SRC:.c=.o)
 NAME = test_sdl
 
-CFLAGS = -Wall -Wextra -Werror -g -std=gnu99 
+CFLAGS = -Wall -Wextra -Werror -g 
 LDFLAGS =  -lSDL2 -lGL -lm
 
 all: $(NAME)
