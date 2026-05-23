@@ -2,6 +2,7 @@
 #define USER_H
 # include "../sdl_test.h"
 # include "../draw_func/draw_func.h"
+# include "../llist/ft_list.h"
 
 #define NB_FACES 200
 #define TWODSIM 1
@@ -14,6 +15,11 @@
 	double		z_vel;
 }	t_face;
 */
+
+typedef struct s_wall{
+	t_vec2 start;
+	t_vec2 end;
+} t_wall;
 
 
 

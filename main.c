@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
 {
 	t_data data;
 	data.argc = argc;
-	data.argv = argv;
+ 	data.argv = argv;
     if (init_all(&data))
 			return (EXIT_FAILURE);
 

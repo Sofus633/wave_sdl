@@ -9,6 +9,7 @@ typedef struct t_face{
 	t_vec2 points[4];
 	double		z_pos;
 	double		z_vel;
+	//bool active;
 }	t_face;
 
 typedef struct s_wave_sim{
@@ -23,9 +24,10 @@ typedef struct s_data{
 	SDL_Window	*window;
 	SDL_Renderer *renderer;
 	t_wave_sim	*sim;
+	SDL_Event event;
 	bool mousepress;
 	bool quit;
-	SDL_Event event;
+	bool a_key_press;
 } t_data;
 
 
