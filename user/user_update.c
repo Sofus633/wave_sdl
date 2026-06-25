@@ -10,11 +10,15 @@ void update_faces_2D(t_data *data){
 				adv = (data->sim->faces_2d[y][i-1].z_pos + data->sim->faces_2d[y - 1][i].z_pos + data->sim->faces_2d[y + 1][i].z_pos)/3;
 			else
 				adv = (data->sim->faces_2d[y][i-1].z_pos + data->sim->faces_2d[y][i+1].z_pos + data->sim->faces_2d[y+1][i].z_pos + data->sim->faces_2d[y - 1][i].z_pos) / 4;
-			data->sim->faces_2d[y][i].z_vel += ((adv) - data->sim->faces_2d[y][i].z_pos) * 0.2;
-			data->sim->faces_2d[y][i].z_vel *= 0.91111;
+			if (!data->sim->faces_2d[y][i].frozen){
+				data->sim->faces_2d[y][i].z_vel += ((adv) - data->sim->faces_2d[y][i].z_pos) * 0.2;
+				data->sim->faces_2d[y][i].z_vel *= 0.91111;
+			}
 			if (!(y == 100 && (i < 100 || i > 110)))
 			{
+			if (!data->sim->faces_2d[y][i].frozen){
 				data->sim->faces_2d[y][i].z_pos += data->sim->faces_2d[y][i].z_vel;
+				}
 			}
 		}
 	}

@@ -9,7 +9,7 @@ typedef struct t_face{
 	t_vec2 points[4];
 	double		z_pos;
 	double		z_vel;
-	//bool active;
+	int frozen;
 }	t_face;
 
 typedef struct s_wave_sim{

@@ -23,7 +23,7 @@ void draw_faces_2d(t_data *data){
 				(int)(data->sim->faces_2d[i][y].z_pos - 255) % 256,
 				10 + (int)(data->sim->faces_2d[i][y].z_pos - (255*2)) % 256,
 				255);
-			if (i == 100 && (y < 100 || y > 110))
+			if ((i == 100 && (y < 100 || y > 110)) || data->sim->faces_2d[i][y].frozen)
 			{
 				SDL_SetRenderDrawColor(data->renderer,
 				set_color(data->sim->faces_2d[i][y].z_pos),

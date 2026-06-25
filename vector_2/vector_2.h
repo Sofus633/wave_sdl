@@ -7,5 +7,6 @@ typedef struct s_vec2{
 } t_vec2;
 
 t_vec2 v_add(t_vec2 v1, t_vec2 v2);
+t_vec2 v_div(t_vec2 v1, int scalar);
 
 #endif

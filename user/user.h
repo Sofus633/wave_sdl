@@ -22,7 +22,6 @@ typedef struct s_wall{
 } t_wall;
 
 
-
 void draw_faces(t_data *data);
 void draw_faces_2d(t_data *data);
 

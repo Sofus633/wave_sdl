@@ -37,6 +37,7 @@ void fill_2d(t_wave_sim *sim){
 				{5, 0}
 			}, 
 			127,
+			0,
 			0
 			};
 		}
@@ -55,7 +56,8 @@ void fill_1d(t_wave_sim *sim){
 			{2, 0}
 		},
 		(double)0,
-		(double)0
+		(double)0,
+		0
 	};
 	}
 }
@@ -66,7 +68,7 @@ void set_cell_value(int x, int y, t_data *data)
 }
 
 void manage_events(t_data *data){
-	//t_vec2 pos;
+	t_vec2 pos;
 	while (SDL_PollEvent(&data->event))
 	{
 		if(data->event.type == SDL_QUIT)
@@ -77,30 +79,31 @@ void manage_events(t_data *data){
 		if (data->event.type == SDL_MOUSEBUTTONUP){
 			data->mousepress = false;
 		}
-		/*
-		if (data->event.key.keysym.scancode == SDL_SCANCODE_A)
+		if (!(data->event.key.keysym.sym == SDLK_a))
 		{
 			data->a_key_press = true;
-			pos = (t_vec2){y / 5, x / 5};
+			//pos = v_div(get_mouse_pos(), 5);
 		}
-		if (!(data->event.key.keysym.scancode == SDL_SCANCODE_A))
+		if ((data->event.key.keysym.scancode == SDL_SCANCODE_A))
 		{
 			data->a_key_press = false;
 		}
 	}
 	//event triger
-
+	printf("%d\n", data->event.key.keysym.scancode == SDL_SCANCODE_A);
 	if (data->a_key_press){
-			
-	}*/
+		pos = v_div(get_mouse_pos(), 5);
+		data->sim->faces_2d[(int)pos.x][(int)pos.y].frozen = 1;
+		//data->sim->faces_2d[(int)pos.x][(int)pos.y].z_pos = 0;
+	}
 
 	if (data->mousepress){
-		t_vec2 pos = get_mouse_pos();
+		pos = get_mouse_pos();
 		if (pos.x / 5 < data->sim->nb_faces || pos.y / 5 < data->sim->nb_faces)
 			set_cell_value(pos.y / 5, pos.x / 5, data);
 	}
 }
-}
+
 
 void main_loop(t_data *data){
 	data->a_key_press = false;
